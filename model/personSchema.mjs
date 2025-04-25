@@ -11,12 +11,12 @@ const personSchema = new mongoose.Schema({
         match: [/^\S+@\S+\.\S+$/, 'Please use a valid email address'],
     },
     phoneNumber:{
-        type: Number,
+        type: String,
         required: true,
         minlength: 10,
         maxlength: 10,
         unique: true,
-        message: 'Phone Number must be 10 digits and unique'
+        match: [/^\d{10}$/,'Phone Number can be exactly 10 digits']        
     },
     job:{
         type: String,
